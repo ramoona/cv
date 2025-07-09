@@ -2,11 +2,999 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linda Rian</title>
+    <meta name="description" content="Product engineer based in Berlin">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <meta property="og:title" content="Linda Rian"/>
+    <meta property="og:description" content="Product engineer based in Berlin"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://linda-rian.dev"/>
+    <meta property="og:image" content="https://linda-rian.dev/portrait.webp"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <style>
+        :root {
+            --surface: #ffe180;
+            --accent: #C2126D;
+            --foreground: #282828;
+            --border: #000;
+            --font-weight-semi-bold: 500;
+            --heading-xl-font-size: 2.4rem;
+            --heading-l-title-font-size: 2rem;
+            --heading-font-size: 1rem;
+            --text-font-size: 16px;
+            --text-s-font-size: 0.9rem;
+            --emojis-font-size: 1.5rem;
+            --section-padding: 1.5rem;
+            --section-max-width: 64rem;
+        }
+
+        /* Base styles, reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+            scroll-behavior: smooth;
+            font-size: var(--text-font-size);
+        }
+
+        body {
+            background: var(--surface);
+            color: var(--foreground);
+            line-height: 1.6;
+            height: 100%;
+            overflow-y: scroll;
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        a {
+            color: var(--foreground);
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        /* Typography */
+        .text-heading-xl, .text-heading-l {
+            font-family: "Bitter", serif;
+            font-optical-sizing: auto;
+            font-weight: bold;
+            font-style: normal;
+            line-height: 1;
+        }
+
+        .text-heading-xl {
+            font-size: var(--heading-xl-font-size);
+            text-align: center;
+        }
+
+        .text-heading-l {
+            font-size: var(--heading-l-title-font-size);
+            text-align: left;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        .text-heading {
+            font-size: var(--heading-font-size);
+            font-weight: bold;
+        }
+
+        /* Sections */
+        .section {
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            max-width: var(--section-max-width);
+            padding: var(--section-padding);
+        }
+
+        /* Intro section */
+
+        .section#intro {
+            min-height: 100dvh;
+        }
+
+        .intro-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .intro-image {
+            width: 14rem;
+            height: 16rem;
+            order: 1;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .contact-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: color 0.25s ease-in-out;
+            font-weight: var(--font-weight-semi-bold);
+        }
+
+        .icon:hover {
+            fill: var(--accent);
+        }
+
+        .intro-text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            order: 2;
+            text-align: center;
+        }
+
+        .section-anchor {
+            border: 1px solid var(--border);
+            padding: 0.25em 0.75em;
+            text-decoration: none;
+            border-radius: 2rem;
+            font-weight: var(--font-weight-semi-bold);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        }
+
+        .section-anchor:hover {
+            background-color: var(--accent);
+            color: var(--surface);
+            border-color: var(--accent);
+        }
+
+        .section-anchors {
+            display: flex;
+            margin-top: auto;
+            white-space: nowrap;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem
+        }
+
+        /* Experience section */
+        .impact {
+            padding-left: 1rem;
+            margin-top: 1rem;
+        }
+
+        .impact > li {
+            list-style: disc;
+        }
+
+        .job-link {
+            text-decoration: underline;
+        }
+
+        .job-period {
+            font-weight: var(--font-weight-semi-bold);
+            width: 100%;
+        }
+
+        .job-header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-details {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            flex-wrap: wrap;
+            width: fit-content;
+            gap: 0.25rem 0.75rem;
+        }
+
+        .job-details > li {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem
+        }
+
+        .job-details > li:not(:last-child)::after {
+            content: "ᐧ";
+            display: block;
+            font-weight: bold;
+            padding-left: 0.5rem;
+        }
+
+        .job-details > li.job-period::after {
+            display: none;
+        }
+
+        .job-title-details {
+            font-weight: normal;
+        }
+
+        .post-mortem {
+            padding-top: 1rem;
+            font-style: italic;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skills > li {
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 0.1em 0.5em;
+            font-size: var(--text-s-font-size);
+        }
+
+        .experience-full-time {
+            width: 100%;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        /* About me section */
+        .about-me-paragraph {
+            text-align: left;
+            width: 100%;
+        }
+
+        .about-me-paragraph:not(:first-of-type) {
+            margin-top: 1rem;
+        }
+
+        .emojis {
+            text-align: center;
+            font-size: var(--emojis-font-size);
+            margin-top: 1.5rem;
+        }
+
+        .intro-anchor {
+            background-color: var(--surface);
+            margin-top: 2rem;
+        }
+
+        /* Projects */
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .project-description {
+            font-size: var(--text-s-font-size);
+            font-style: italic;
+        }
+
+        @media (min-width: 620px) {
+            :root {
+                --heading-xl-font-size: 4rem;
+                --heading-l-title-font-size: 3rem;
+                --section-padding: 2rem;
+                --heading-font-size: 1.2rem;
+            }
+
+            .job-details {
+                justify-content: space-between;
+            }
+
+            .job-period {
+                width: fit-content;
+            }
+
+            .job-details > li.job-period::after {
+                display: block;
+            }
+
+            .intro-image {
+                width: 22rem;
+                height: 25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .intro-content {
+                flex-direction: row;
+                align-items: stretch;
+                justify-content: center;
+                gap: 4rem;
+            }
+
+            .intro-image {
+                order: 2;
+            }
+
+            .intro-text-content {
+                order: 1;
+            }
+
+            .text-heading-xl {
+                text-align: left;
+            }
+
+            .intro-text-content {
+                text-align: left;
+            }
+
+            .contact-links {
+                justify-content: start;
+            }
+
+            .about-me-paragraph {
+                text-align: left;
+                width: 100%;
+            }
+
+            .section-anchors {
+                justify-content: start;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>
-    Hello World!
-</h1>
+<svg aria-hidden="true" style="display: none;">
+    <symbol id="icon-location" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none"/>
+        <circle cx="128" cy="104" r="32" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="16"/>
+        <path d="M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z" fill="none"
+              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="16"/>
+    </symbol>
+    <symbol id="icon-office" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none"/>
+        <line x1="24" y1="216" x2="248" y2="216" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="48" y1="40" x2="48" y2="216" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="176" y1="216" x2="176" y2="40" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="224" y1="216" x2="224" y2="88" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="80" y1="80" x2="96" y2="80" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="128" y1="80" x2="144" y2="80" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="80" y1="120" x2="96" y2="120" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="128" y1="120" x2="144" y2="120" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <polyline points="88 216 88 160 136 160 136 216" fill="none" stroke="currentColor"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="40" y1="40" x2="184" y2="40" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="176" y1="88" x2="232" y2="88" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+    </symbol>
+    <symbol id="icon-laptop" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none"/>
+        <path d="M40,176V72A16,16,0,0,1,56,56H200a16,16,0,0,1,16,16V176" fill="none"
+              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="16"/>
+        <path d="M24,176H232a0,0,0,0,1,0,0v16a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V176A0,0,0,0,1,24,176Z"
+              fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="16"/>
+        <line x1="144" y1="88" x2="112" y2="88" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+    </symbol>
+    <symbol id="icon-backpack" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none"/>
+        <path d="M96,48h64a48,48,0,0,1,48,48V216a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V96A48,48,0,0,1,96,48Z"
+              fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="16"/>
+        <path d="M80,224V152a16,16,0,0,1,16-16h64a16,16,0,0,1,16,16v72" fill="none"
+              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="16"/>
+        <path d="M96,48V32a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V48" fill="none"
+              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="16"/>
+        <line x1="112" y1="88" x2="144" y2="88" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="80" y1="168" x2="176" y2="168" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <line x1="144" y1="168" x2="144" y2="184" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+    </symbol>
+    <symbol id="icon-full-time" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none"/>
+        <polyline points="176 104 128 128 128 72" fill="none" stroke="currentColor"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <path d="M128,224a96,96,0,1,1,96-96" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <circle cx="192" cy="176" r="24" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="16"/>
+        <path d="M160,224c3.67-13.8,16.6-24,32-24s28.33,10.2,32,24" fill="none"
+              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="16"/>
+    </symbol>
+    <symbol id="icon-people" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none"/>
+        <circle cx="84" cy="108" r="52" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="16"/>
+        <path d="M10.23,200a88,88,0,0,1,147.54,0" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <path d="M172,160a87.93,87.93,0,0,1,73.77,40" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        <path d="M152.69,59.7A52,52,0,1,1,172,160" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+    </symbol>
+    <symbol id="icon-calendar" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none"/>
+        <rect x="40" y="40" width="176" height="176" rx="8" fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="24"/>
+        <line x1="176" y1="24" x2="176" y2="52" fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="24"/>
+        <line x1="80" y1="24" x2="80" y2="52" fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="24"/>
+        <line x1="40" y1="88" x2="216" y2="88" fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="24"/>
+        <circle cx="128" cy="128" r="16"/>
+        <circle cx="176" cy="128" r="16"/>
+        <circle cx="80" cy="176" r="16"/>
+        <circle cx="128" cy="176" r="16"/>
+        <circle cx="176" cy="176" r="16"/>
+    </symbol>
+</svg>
+<main>
+    <section class="section" id="intro">
+        <div class="intro-content">
+            <div class="intro-text-content">
+                <h1 class="text-heading-xl">Hi, I'm Linda <br> Product Engineer</h1>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/linda-rian/" class="contact-link" title="LinkedIn profile"
+                       target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="icon">
+                            <g>
+                                <path d="M0 18.338C0 8.216 8.474 0 18.92 0h218.16C247.53 0 256 8.216 256 18.338v219.327C256 247.79 247.53 256 237.08 256H18.92C8.475 256 0 247.791 0 237.668V18.335z"
+                                      fill="currentColor"/>
+                                <path d="M77.796 214.238V98.986H39.488v115.252H77.8zM58.65 83.253c13.356 0 21.671-8.85 21.671-19.91-.25-11.312-8.315-19.915-21.417-19.915-13.111 0-21.674 8.603-21.674 19.914 0 11.06 8.312 19.91 21.169 19.91h.248zM99 214.238h38.305v-64.355c0-3.44.25-6.889 1.262-9.346 2.768-6.885 9.071-14.012 19.656-14.012 13.858 0 19.405 10.568 19.405 26.063v61.65h38.304v-66.082c0-35.399-18.896-51.872-44.099-51.872-20.663 0-29.738 11.549-34.78 19.415h.255V98.99H99.002c.5 10.812-.003 115.252-.003 115.252z"
+                                      fill="#ffe180"/>
+                            </g>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/ramoona" class="contact-link" title="GitHub profile" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96" class="icon">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:hello@linda-rian.dev" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="icon">
+                            <rect width="256" height="256" fill="none"/>
+                            <polyline points="224 56 128 144 32 56" fill="none" stroke="currentColor"
+                                      stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                            <path d="M32,56H224a0,0,0,0,1,0,0V192a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V56A0,0,0,0,1,32,56Z"
+                                  fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="16"/>
+                            <line x1="110.55" y1="128" x2="34.47" y2="197.74" stroke="currentColor"
+                                  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                            <line x1="221.53" y1="197.74" x2="145.45" y2="128" stroke="currentColor"
+                                  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                        </svg>
+                        hello@linda-rian.dev</a>
+                    <a href="/Linda_Rian_CV.pdf" class="contact-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="icon">
+                            <rect width="256" height="256" fill="none"/>
+                            <rect x="53.87" y="34.21" width="148.27" height="187.59" rx="8"
+                                  transform="translate(24.22 -20.31) rotate(10.02)" fill="none" stroke="currentColor"
+                                  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                            <line x1="97.22" y1="59.81" x2="180.2" y2="74.47" fill="none" stroke="currentColor"
+                                  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                            <line x1="174.66" y1="105.98" x2="91.67" y2="91.33" fill="none" stroke="currentColor"
+                                  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                            <line x1="127.62" y1="130.17" x2="86.13" y2="122.84" fill="none" stroke="currentColor"
+                                  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                        </svg>
+                        CV</a>
+                </div>
+
+                <p class="intro-text">
+                    I've been building web applications for over ten years, primarily as a Frontend Engineer but recently more on the full-stack side.
+                    I'm happiest in teams where I can contribute to shaping the product, not just build software.
+                    With a background mostly in startups, I'm used to navigating ambiguity, taking ownership, and moving
+                    things forward without waiting for perfect specs. I am based in Berlin.
+                </p>
+
+                <p class="intro-text">These days I'm open to new opportunities, so let's connect!
+                </p>
+                <div class="section-anchors">
+                    <a href="#experience" class="section-anchor">Experience</a>
+                    <a href="#personal-projects" class="section-anchor">Projects</a>
+                    <a href="#about-me" class="section-anchor">About me</a>
+                </div>
+            </div>
+            <img src="https://ik.imagekit.io/ramoona/portrait.webp" alt="Linda Rian's profile picture"
+                 class="intro-image">
+        </div>
+    </section>
+    <section class="section" id="experience">
+        <h2 class="text-heading-l">Experience</h2>
+        <ul class="projects">
+            <li>
+                <div class="job-header">
+                    <h3 class="text-heading">Senior Fullstack Engineer <span class="job-title-details">at <a
+                            href="https://www.midlane.com"
+                            target="_blank"
+                            class="job-link">Midlane</a></span></h3>
+                    <p class="project-description">
+                        Midlane is an all-in-one HR platform for managing frontline workforce.
+                    </p>
+                </div>
+                <ul class="job-details">
+                    <li class="job-period">
+                        <svg width="18" height="18">
+                            <use href="#icon-calendar"/>
+                        </svg>
+                        Sep 2023 — Jun 2025
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-location"/>
+                        </svg>
+                        Berlin
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-backpack"/>
+                        </svg>
+                        Hybrid
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-people"/>
+                        </svg>
+                        &lt; 10
+                    </li>
+                </ul>
+                <ul class="impact">
+                    <li>
+                        Built a fullstack Next.js app as one of the Founding Engineers, laying the foundation for a B2B SaaS platform that cut time-to-hire from weeks to days. Helped evolve a single-purpose MVP into an all-in-one HR platform adopted by customers.
+                    </li>
+                    <li>Owned full-cycle feature development: from discovery, shaping and scoping to design, implementation and ongoing support.
+                    </li>
+                    <li>Refined customer-facing UI/UX, improving usability and reducing support requests.</li>
+                    <li>Worked directly with customers to resolve issues, communicate updates, and gather
+                        feedback.
+                    </li>
+                </ul>
+                <ul class="skills">
+                    <li>Next.js</li>
+                    <li>React</li>
+                    <li>TypeScript</li>
+                    <li>Prisma ORM</li>
+                    <li>PostgreSQL</li>
+                    <li>AWS</li>
+                    <li>Tailwind CSS</li>
+                    <li>Unit Testing</li>
+                    <li>Integration Testing</li>
+                    <li>End-to-end Testing</li>
+                    <li>Jest</li>
+                    <li>Playwright</li>
+                    <li>Storybook</li>
+                    <li>Figma</li>
+                </ul>
+            </li>
+            <li>
+                <div class="job-header">
+                    <h3 class="text-heading">Frontend Engineer <span class="job-title-details">at <a
+                            href="https://www.hellogetsafe.com/" target="_blank"
+                            class="job-link">Getsafe</a>, Customer Acquisition
+                    Team</span></h3>
+                    <p class="project-description">Getsafe is a digital insurance company and broker.</p>
+                </div>
+                <ul class="job-details">
+                    <li class="job-period">
+                        <svg width="18" height="18">
+                            <use href="#icon-calendar"/>
+                        </svg>
+                        Jun 2023 — Sep 2023
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-location"/>
+                        </svg>
+                        Berlin
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-laptop"/>
+                        </svg>
+                        Remote
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-people"/>
+                        </svg>
+                        250+
+                    </li>
+                </ul>
+                <ul class="impact">
+                    <li>Improved insurance products purchase flows through A/B testing by implementing pre-fill
+                        functionality from landing pages, leading to increased conversion rates and smoother UX.
+                    </li>
+                </ul>
+                <p class="post-mortem">Although my time at Getsafe was brief, I valued the opportunity to learn in a
+                    data-driven team. I
+                    chose to pursue a more challenging role that allowed me to grow into a fullstack engineer.</p>
+                <ul class="skills">
+                    <li>Next.js</li>
+                    <li>React</li>
+                    <li>TypeScript</li>
+                    <li>React Native</li>
+                    <li>Figma</li>
+                </ul>
+            </li>
+            <li>
+                <div class="job-header">
+                    <h3 class="text-heading">Senior Frontend Engineer <span class="job-title-details">at <a
+                            href="https://www.linkedin.com/company/passbase"
+                            target="_blank" class="job-link">Passbase</a>,
+                    Rewrite Team</span></h3>
+                    <p class="project-description">Passbase is an identity verification solution for iOS, Web and
+                        Android.</p>
+                </div>
+                <ul class="job-details">
+                    <li class="job-period">
+                        <svg width="18" height="18">
+                            <use href="#icon-calendar"/>
+                        </svg>
+                        Jul 2021 — May 2023
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-location"/>
+                        </svg>
+                        Berlin
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-laptop"/>
+                        </svg>
+                        Remote
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-people"/>
+                        </svg>
+                        20-25
+                    </li>
+                </ul>
+                <ul class="impact">
+                    <li>Contributed to the system design of a major rewrite, including the design of new GraphQL and
+                        REST APIs.
+                    </li>
+                    <li>Migrated frontend apps to the new API layer as the next phase of the transition.</li>
+                    <li>Refactored key features like face detection to use higher-performant vendors (validated through
+                        POCs) resulting in improved UX and fewer drop-offs.
+                    </li>
+                    <li>Improved backoffice UI/UX by streamlining user input with keyboard shortcuts and visual cues for
+                        potential discrepancies, leading to faster verifications and higher data quality.
+                    </li>
+                    <li>Consolidated commonly used UI components into a shared component library, resulting in better
+                        consistency, UX and developer experience across apps.
+                    </li>
+                    <li>Interviewed candidates for frontend engineering roles.</li>
+                </ul>
+                <p class="post-mortem">Following Passbase’s acquisition, the team, including myself, was let go.</p>
+                <ul class="skills">
+                    <li>Next.js</li>
+                    <li>React</li>
+                    <li>TypeScript</li>
+                    <li>Styled Components</li>
+                    <li>Storybook</li>
+                    <li>GraphQL</li>
+                    <li>Unit Testing</li>
+                    <li>Jest</li>
+                    <li>Figma</li>
+                </ul>
+            </li>
+            <li>
+                <div class="job-header">
+                    <h3 class="text-heading">Frontend Engineer <span class="job-title-details"> at <a
+                            href="https://agro.club" target="_blank" class="job-link">Agro.Club</a></span>
+                    </h3>
+                    <p class="project-description">Agro.Club is global B2B marketplace operating in the agriculture markets.</p>
+                </div>
+                <ul class="job-details">
+                    <li class="job-period">
+                        <svg width="18" height="18">
+                            <use href="#icon-calendar"/>
+                        </svg>
+                        May 2020 — May 2021
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-location"/>
+                        </svg>
+                        Moscow
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-laptop"/>
+                        </svg>
+                        Remote
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-people"/>
+                        </svg>
+                        15-25
+                    </li>
+                </ul>
+                <ul class="impact">
+                    <li>In close collaboration with the Design Lead, built an in-house design system, including a custom
+                        icon library, and drove its adoption across projects.
+                    </li>
+                    <li>Introduced code generation using Plop templates for faster scaffolding, improving developer
+                        experience and consistency.
+                    </li>
+                    <li>Increased end-to-end test coverage with Cypress, improving product reliability.</li>
+                    <li>Interviewed candidates for junior frontend engineering roles.</li>
+                    <li>Mentored junior frontend engineers through pair programming and hands-on guidance.</li>
+                </ul>
+                <p class="post-mortem">While at Agro.Club, I made a life-changing decision to relocate from Russia,
+                    which the company was
+                    unable to accommodate at the time, so I accepted a role at another company.</p>
+                <ul class="skills">
+                    <li>React</li>
+                    <li>TypeScript</li>
+                    <li>Styled Components</li>
+                    <li>Storybook</li>
+                    <li>Unit Testing</li>
+                    <li>End-to-end Testing</li>
+                    <li>Jest</li>
+                    <li>Cypress</li>
+                    <li>Figma</li>
+                </ul>
+            </li>
+            <li>
+                <div class="job-header">
+                    <h3 class="text-heading">Frontend Engineer <span class="job-title-details">at <a
+                            href="https://skyeermap.com/ENG" target="_blank"
+                            class="job-link">Skyeer</a></span></h3>
+                    <p class="project-description">Skyeer is spatial data platform for earthworks, construction, mining & stockpiles.</p>
+                </div>
+                <ul class="job-details">
+                    <li class="job-period">
+                        <svg width="18" height="18">
+                            <use href="#icon-calendar"/>
+                        </svg>
+                        Sep 2018 — May 2020
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-location"/>
+                        </svg>
+                        Moscow
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-laptop"/>
+                        </svg>
+                        Remote
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-people"/>
+                        </svg>
+                        10-15
+                    </li>
+                </ul>
+                <ul class="impact">
+                    <li>Helped migrate the codebase to TypeScript, improving type safety and developer confidence.</li>
+                    <li>Built interactive data visualizations and custom map features using MapboxGL and Recharts
+                        libraries.
+                    </li>
+                    <li>Contributed to the implementation of PDF report generation with Puppeteer to meet customers
+                        reporting needs.
+                    </li>
+                    <li>Collaborated closely with a UX designer to ensure consistent UI across the application.</li>
+                </ul>
+                <p class="post-mortem">
+                    I truly enjoyed my time as Skyeer and the complexity of the project. However, when the company faced
+                    funding difficulties, I had to take on another opportunity.
+                </p>
+                <ul class="skills">
+                    <li>React</li>
+                    <li>JavaScript</li>
+                    <li>TypeScript</li>
+                    <li>Redux</li>
+                    <li>PostCSS</li>
+                    <li>CSS Modules</li>
+                    <li>Storybook</li>
+                    <li>Unit Testing</li>
+                    <li>Jest</li>
+                    <li>Sketch</li>
+                </ul>
+            </li>
+            <li>
+                <div class="job-header">
+                    <h3 class="text-heading">Frontend Engineer <span class="job-title-details">at <a
+                            href="https://www.ligastavok.ru" target="_blank"
+                            class="job-link">Liga Stavok</a></span></h3>
+                    <p class="project-description">Liga Stavok is one of the largest online betting services is Russia,
+                        providing real-time sports event data through its web applications.</p>
+                </div>
+                <ul class="job-details">
+                    <li class="job-period">
+                        <svg width="18" height="18">
+                            <use href="#icon-calendar"/>
+                        </svg>
+                        Jun 2015 — Sep 2018
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-location"/>
+                        </svg>
+                        Moscow
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-office"/>
+                        </svg>
+                        Onsite
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-people"/>
+                        </svg>
+                        2000+
+                    </li>
+                </ul>
+                <ul class="impact">
+                    <li>Contributed to the development a React component library for both desktop and mobile web
+                        platforms.
+                    </li>
+                    <li>Built landings pages and emails for customer acquisition.</li>
+                </ul>
+                <p class="post-mortem">
+                    During my three years at Liga Stavok, I grew from a junior to a fully independent Frontend Engineer,
+                    gaining invaluable experience along the way. Over time, I realized my values no longer aligned with
+                    the company's direction and industry, so I chose to explore new opportunities.
+                </p>
+                <ul class="skills">
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Redux</li>
+                    <li>PostCSS</li>
+                    <li>LESS</li>
+                </ul>
+            </li>
+            <li>
+                <div class="job-header">
+                    <h3 class="text-heading">HTML Developer <span class="job-title-details">at <a
+                            href="https://www.rus-telecom.ru" target="_blank"
+                            class="job-link">Rus Telecom</a></span></h3>
+                    <p class="project-description">Rus-Telecom is a system integrator and software developing
+                        company specializing in confidential information protection.</p>
+                </div>
+                <ul class="job-details">
+                    <li class="job-period">
+                        <svg width="18" height="18">
+                            <use href="#icon-calendar"/>
+                        </svg>
+                        Apr 2014 — Jun 2015
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-location"/>
+                        </svg>
+                        Moscow
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-office"/>
+                        </svg>
+                        Onsite
+                    </li>
+                    <li>
+                        <svg width="18" height="18">
+                            <use href="#icon-people"/>
+                        </svg>
+                        200+
+                    </li>
+                </ul>
+                <ul class="impact">
+                    <li>Worked on building and styling HTML Forms</li>
+                </ul>
+                <p class="post-mortem">As my first role in web development, it gave me a solid foundation, but I quickly
+                    realized my growth
+                    potential there was limited and started looking for more challenging opportunities.</p>
+                <ul class="skills">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                </ul>
+            </li>
+        </ul>
+        <p class="experience-full-time">All roles listed were full-time positions.</p>
+    </section>
+    <section class="section" id="personal-projects">
+        <h2 class="text-heading-l">Personal projects</h2>
+        <ul class="projects">
+            <li>
+                <h3 class="text-heading"><a href="https://mywishcraft.app" target="_blank">Wishcraft</a>, <span
+                        class="job-title-details">2023 — Present</span></h3>
+                <p>Personal project, a simple wishlist app for saving wishes and reserving
+                    those of others. Built solo, with a UX design input from a collaborator.</p>
+            </li>
+            <li>
+                <h3 class="text-heading"><a href="https://github.com/ramoona/banks-db" target="_blank">Banks DB</a>,
+                    <span
+                            class="job-title-details">2016 — Present</span></h3>
+                <p>Open source, community driven database for retrieving bank details (e.g.
+                    name, brand color) based on card BIN (Bank Identification Number). Designed to improve the UX of
+                    billing forms by surfacing bank branding, improving user confidence during checkout. Author and
+                    maintainer.</p>
+            </li>
+        </ul>
+    </section>
+    <section class="section" id="about-me">
+        <h2 class="text-heading-l">About me</h2>
+        <p class="about-me-paragraph">Outside of tech, I mostly enjoy staying in, away from the noise and close to my two
+            cats. I do love travelling though, especially when it involves hiking, good food, or both. So far I’ve
+            been to 30 countries.</p>
+        <p class="about-me-paragraph">I’m passionate about cinema, from indie to cult classics, and always appreciate a good
+            recommendation. I mostly read fiction, and have a soft spot for sci-fi and dystopias.</p>
+        <p class="about-me-paragraph">Also, I bake. Not as often as I'd like, but it's one of my favorite ways to unwind and
+            do something by hand, away from the screen.</p>
+        <p class="emojis">🐈 🏔️ 🍿 📗 🎮 🍪</p>
+        <a href="#intro" class="section-anchor intro-anchor">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="icon">
+                <rect width="256" height="256" fill="none"/>
+                <line x1="128" y1="216" x2="128" y2="40" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"/>
+                <polyline points="56 112 128 40 200 112" fill="none" stroke="currentColor" stroke-linecap="round"
+                          stroke-linejoin="round" stroke-width="16"/>
+            </svg>
+            Back to intro
+        </a>
+    </section>
+</main>
+<script>
+    console.log("Hey, nice to see you here! Have a look around, poke some HTML tags, don't be shy 👁️👄👁️")
+</script>
 </body>
 </html>
