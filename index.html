@@ -16,8 +16,11 @@
     <meta property="og:image" content="https://linda-rian.dev/portrait.webp"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-          rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bitter:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ">
+    </noscript>
     <style>
         :root {
             --surface: #ffe180;
@@ -54,7 +57,7 @@
             line-height: 1.6;
             height: 100%;
             overflow-y: scroll;
-            font-family: "Raleway", sans-serif;
+            font-family: "Raleway", Helvetica, sans-serif;
             font-optical-sizing: auto;
             font-weight: normal;
             font-style: normal;
@@ -76,7 +79,7 @@
 
         /* Typography */
         .text-heading-xl, .text-heading-l {
-            font-family: "Bitter", serif;
+            font-family: "Bitter", Arial, serif;
             font-optical-sizing: auto;
             font-weight: bold;
             font-style: normal;
@@ -490,7 +493,7 @@
                     <path fill="var(--accent)"
                           d="M246.01 218.978c-41.174 79.619-80.934 88.359-133.67 68.981C60.433 268.886-24.378 209.207 7.833 124.595 48.066 32.409 155.778-17.966 210.74 5.995c61.986 27.024 76.442 133.364 35.269 212.983Z"/>
                 </svg>
-                <img src="https://ik.imagekit.io/ramoona/portrait-transparent-bg.webp" alt="Linda Rian's profile picture"
+                <img src="https://ik.imagekit.io/ramoona/portrait.webp?updatedAt=1752169776221" alt="Linda Rian's profile picture"
                      class="intro-image-portrait">
             </div>
             <div class="intro-text-content">
